@@ -1,0 +1,66 @@
+{% extends request.session.basefile %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="signupwrapper fadeInDown">
+  <div id="signupformContent">
+
+        <div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
+        </h1><h2>Customer Registration Form</h2><br>
+        </div>
+        <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+       <div class="col-md-4 mb-3">
+      <label>User name</label>
+      <input type="text"  class="form-control" name="username" maxlength="150"  required id="id_username" placeholder="Username">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label >First name</label>
+     <input type="text"  class="form-control" name="first_name" maxlength="30" id="id_first_name"  placeholder="First Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>Last name</label>
+       <input type="text"  class="form-control" name="last_name" maxlength="150" id="id_last_name"  placeholder="LastName">
+    </div>
+
+  </div><br>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" required id="id_email"  placeholder="Email">
+    </div>
+
+      <div class="col-md-6 mb-3">
+      <label>Select Product</label>
+     <select class="custom-select" id="inputGroupSelect01" name="s_product">
+               {%for product in pro%}
+                  <option value="{{product.name}}">ProductName:-{{product.name}}        price:-{{product.price}}</option>
+                {%endfor%}
+      </select>
+    </div>
+  </div>
+        <br>
+  <div class="form-row">
+       <div class="col-md-6 mb-3">
+      <label>Password</label>
+      <input type="password"  class="form-control" name="password1" required id="id_password1"  placeholder="Password">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>Confirm Password</label>
+     <input type="password"  class="form-control" name="password2" required id="id_password2"  placeholder="Confirm Password">
+    </div>
+  </div><br>
+        <div class="form-row">
+<div class="col-md-3 mb-3">
+     <button type="submit" class="btn btn-info">Submit</button>
+    </div>
+                </div>
+</form>
+     </div>
+  </form>
+  </div>
+</div>
+      {% endblock %}

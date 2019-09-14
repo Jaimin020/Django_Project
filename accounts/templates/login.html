@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+ <!--<link rel="stylesheet" type="text/css" href="{% static 'accounts/login.css' %}" />-->
+
+ <!--<link rel="stylesheet" type="text/css" href="{% static 'accounts/logininput.css' %}" />-->
+<style>
+
+.container {
+  padding: 16px;
+  width:70%;
+}
+/* The Modal (background) */
+
+#signupformContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 3px;
+  width: 70%;
+  max-width: 80%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+
+}
+
+.signupwrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 0px;
+}
+  /* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 5% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+</style>
+
+	{% if form.errors %}
+		<p class="error"> Invalid Username or Password </p>
+	{% endif %}
+<!--<div class="jumbotron jumbotron-fluid">-->
+  <!--<div class="container">-->
+    <!--<div id="formContent">-->
+<!--<form action="/accounts/auth/" method = "post">{% csrf_token %}-->
+      <!--<input type="text" id="login" class="fadeIn second" name="username" placeholder="username">-->
+      <!--<input type="password" id="password" class="fadeIn third" name="password" placeholder="password">-->
+      <!--<input type="submit" class="fadeIn fourth" value="Log In">-->
+<!--</form>-->
+  <!--</div>-->
+<!--</div>-->
+<br><br><br>
+<div class="container  fadeInDown"  style="width:60%;">
+  <div id="signupformContent"  class="container ">
+    <!-- Tabs Titles -->
+<div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="">Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link " href="/accounts/signup"><font color="black">Register</font></a>
+      </li>
+    </ul>
+  </div>
+    <!-- Icon -->
+      <div  style="width:100%;">
+        <div style="padding:40px;">
+      <center>
+    <div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
+        <h3>A Q U I~S A L E S</h3><small>Log in to your AQUI~SALES account</small>
+    </div></center>
+      <br>
+      <br>
+
+	{% if error %}
+		<p class="error"> {{error}}</p>
+	{% endif %}
+<center>
+    <form action="/accounts/auth/" method = "post">{% csrf_token %}
+      <input type="text"  id="login" class="fadeIn form-control second" name="username" placeholder="username">
+        <br>
+      <input type="password" id="password" class="fadeIn form-control third" name="password" placeholder="password">
+        <br>
+      <input type="submit" class="btn btn-info fadeIn fourth" value="Log In">
+    </form>
+</center>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

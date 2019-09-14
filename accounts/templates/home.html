@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
+
+  <a class="navbar-brand" href="">A Q U I~S A L E S</a>
+   <form class="form-inline">
+
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/accounts/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" type="email"  href="mailto:adchaudhari70.ac@gmail.com">Contact us</a>
+      </li>
+    </ul>
+       </form>
+     <div class="d-flex ml-auto justify-content-end">
+    <form class="form-inline ml-auto" action="/accounts/login"> {% csrf_token %}
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Login!</button>
+      </form>&nbsp;
+      <form class="form-inline ml-auto" action="signup.html"> {% csrf_token %}
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Signup</button>
+      </form>
+      </div>
+
+</nav>
+    <div class="jumbotron " style="opacity: 0.9;
+  filter: alpha(opacity=50);  background-color:#d1e2ff;" >
+    <h1 class="display-4 fadeIn  first"><center>What is CRM?</center></h1>
+    <p class="lead"><center class="fadeIn first">A simple, thorough look at what CRM means for your business.</center>   </p>
+  <hr class="my-4 fadeIn first">
+  <p><center class="fadeIn second">CRM is short for Customer Relationship Management.
+    It’s a software solution that brings a host of capabilities together.
+    You can store all your prospects and customers, send emails, create reports,without stepping
+    out of the CRM system.</center></p>
+  <center><a class="btn btn-info btn-lg fadeIn second" href="/accounts/login" role="button">L O G I N </a></center>
+<br>
+        <br>
+  <div class="container  fadeIn third">
+      <h1 class="display-4"><center>Benefits of using CRM software</center></h1><br><br>
+ <section class="l-section section-light-bg section-bucket" data-scroll-target="benefits" id="benefits">
+<div class="l-page container l-grid">
+<div class="row">
+<div class="feature-description-item-d mb-md col-sm-4 l-col-widget" data-scroll-target="" id="">
+    <!--<div class="feature-description-icon-d icon-big  " style="margin: 0 auto;">-->
+      <!--<img src="/assets/images/freshsales/seo/icons/enhanced-relationships-with-customers@2x-54168a63.png" />-->
+    <!--</div>-->
+  <div class="align-center feature-description-text-d">
+        <h6 class="align-center">Enhanced relationships with customers</h6>
+
+          <p class="align-center">From prospect to lead to customer, their journey is captured in the CRM. These insights put you in a better position to recognize people, their needs, and how your business can work for them.</p>
+  </div>
+</div>
+
+<div class="feature-description-item-d mb-md col-sm-4 l-col-widget" data-scroll-target="" id="">
+    <!--<div class="feature-description-icon-d icon-big  " style="margin: 0 auto;">-->
+      <!--<img src="/assets/images/freshsales/seo/icons/lesser-data-entry@2x-2975694d.png" />-->
+    <!--</div>-->
+  <div class="align-center feature-description-text-d">
+        <h6 class="align-center">Lesser data entry</h6>
+
+          <p class="align-center">CRM lets you automate mundane tasks like creating leads from signup forms and sending welcome emails to new leads. Spreadsheets demand data entry; CRMs minimize it.</p>
+  </div>
+</div>
+
+<div class="feature-description-item-d mb-md col-sm-4 l-col-widget" data-scroll-target="" id="">
+    <!--<div class="feature-description-icon-d icon-big  " style="margin: 0 auto;">-->
+      <!--<img src="/assets/images/freshsales/seo/icons/better-communication@2x-c64afb67.png" />-->
+    <!--</div>-->
+  <div class="align-center feature-description-text-d">
+        <h6 class="align-center">Better communication</h6>
+
+          <p class="align-center">The CRM system becomes a single source of truth for every member in your team. No information gaps, no back-and-forth—the customer hears a consistent voice from your business.</p>
+  </div>
+</div>
+</div><div class="row">
+<div class="feature-description-item-d mb-md col-sm-4 l-col-widget" data-scroll-target="" id="">
+    <!--<div class="feature-description-icon-d icon-big  " style="margin: 0 auto;">-->
+      <!--<img src="/assets/images/freshsales/seo/icons/healthier-pipelines@2x-ae9190f0.png" />-->
+    <!--</div>-->
+  <div class="align-center feature-description-text-d">
+        <h6 class="align-center">Healthier pipelines</h6>
+
+          <p class="align-center">Being able to visualize your pipeline makes it easier for you to prioritize deals and pick them off diligently. As a result, your pipeline stays clog-free and you remain committed to the bottom line.</p>
+  </div>
+</div>
+
+<div class="feature-description-item-d mb-md col-sm-4 l-col-widget" data-scroll-target="" id="">
+    <!--<div class="feature-description-icon-d icon-big  " style="margin: 0 auto;">-->
+      <!--<img src="/assets/images/freshsales/seo/icons/higher-revenue@2x-52ab0190.png" />-->
+    <!--</div>-->
+  <div class="align-center feature-description-text-d">
+        <h6 class="align-center">Higher revenue</h6>
+
+          <p class="align-center">Because you have a well-rounded view of your customer at all times, you can cross-sell and up-sell at the right moments, with higher success rates. This also reduces the chances of attrition.</p>
+  </div>
+</div>
+
+<div class="feature-description-item-d mb-md col-sm-4 l-col-widget" data-scroll-target="" id="">
+    <!--<div class="feature-description-icon-d icon-big  " style="margin: 0 auto;">-->
+      <!--<img src="/assets/images/freshsales/seo/icons/more-collaboration-a-strong-business@2x-0492ec31.png" />-->
+    <!--</div>-->
+  <div class="align-center feature-description-text-d">
+        <h6 class="align-center">More collaboration = a strong business</h6>
+
+          <p class="align-center">Information in the CRM is useful not just for your sales team, but for marketing and support too. They can plan campaigns and respond to tickets better using sales context.</p>
+  </div>
+</div>
+</div></div>
+  </section>
+  </div>
+</div>
+{% endblock %}

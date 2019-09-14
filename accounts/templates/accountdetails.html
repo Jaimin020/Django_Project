@@ -1,0 +1,71 @@
+{% extends request.session.basefile %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="card">
+  <div class="card-header">
+ Account info.
+  </div>
+  <form method="get" action="/accounts/update" >
+        {% csrf_token %}
+      <br>
+      <div class="col-auto">
+          <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                  <div class="input-group-text">Username</div>
+              </div>
+              <input type="text" class="form-control" name="username" maxlength="150" value="{{user.username}}" autofocus required id="id_username"disabled>
+          </div>
+      </div>
+      <div class="form-row">
+        <div class="col">
+             <div class="col-auto">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">First name</div>
+                </div>
+            <input type="text"  class="form-control"  name="first_name" value="{{user.first_name}}" maxlength="30" id="id_first_name">
+                  </div>
+         </div>
+        </div>
+      <div class="col">
+           <div class="col-auto">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Last name</div>
+                </div>
+                    <input type="text"  class="form-control"  name="last_name"value="{{user.last_name}}" maxlength="150" id="id_last_name">
+                 </div>
+         </div>
+        </div>
+      </div>
+       <div class="col-auto">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">Email</div>
+                </div>
+                <input type="text" name="email" value="{{user.email}}"  class="form-control" id="inlineFormInputGroup" placeholder="Username">
+           </div>
+         </div>
+
+           <div class="col-auto">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">User Type</div>
+                </div>
+                <input type="text" name="email" value="{{request.session.user_type}}"  class="form-control" disabled>
+           </div>
+         </div>
+       <div class="col-auto">
+    <div class="clearfix">
+        <button type="submit" class="btn btn-info">update</button>
+    </div>
+       </div>
+       <br>
+  </form>
+
+ </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends request.session.basefile %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<center>
+<br>
+    <br>
+    <br>
+    <br>
+<div class="card" style="width: 40rem;">
+    <div class="card-body" >
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Access Denied</h4>
+            <p>{{message}}</p>
+        <hr>
+        <p class="mb-0"><a href="/accounts/login" class="btn ">click here </a>to login</p>
+        </div>
+    </div>
+</div>
+</center>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<style>
+
+.container {
+  padding: 16px;
+  width:70%;
+}
+/* The Modal (background) */
+
+#signupformContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 3px;
+  width: 70%;
+  max-width: 80%;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+
+}
+
+.signupwrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 0px;
+}
+  /* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 5% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+</style>
+    <br>
+<div class="container fadeInDown " >
+    <div id="signupformContent" class="container" >
+
+        <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+          <a class="nav-link " href="/accounts/login"><font color="black">Login</font></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/accounts/signup">Register</a>
+      </li>
+    </ul>
+  </div>
+       <div  style="width:100%;hight:200%;">
+        <div style="padding:40px;">
+             <center><div class="fadeIn first">
+      <!--<img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />-->
+            <h3>A Q U I~S A L E S</h3><small class="text-muted">Sign up to manage your sales</small>
+             </div>
+             {{msg}}</center>
+            <br>
+        <br >
+    <form method="post"> {% csrf_token %}
+  <div class="form-row">
+       <div class="col-md-4 mb-3">
+      <label>User name</label>
+      <input type="text"  class="form-control" name="username" maxlength="150"  required id="id_username" placeholder="Username">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label >First name</label>
+     <input type="text"  class="form-control" name="first_name" maxlength="30" id="id_first_name"  placeholder="First Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>Last name</label>
+       <input type="text"  class="form-control" name="last_name" maxlength="150" id="id_last_name"  placeholder="LastName">
+    </div>
+
+  </div><br>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" required id="id_email"  placeholder="Email">
+    </div>
+
+      <div class="col-md-6 mb-3">
+      <label>User Type</label>
+     <select class="custom-select" id="inputGroupSelect01" name="user_type">
+                <option value="employee">Employee</option>
+                <option value="manager">Manager</option>
+                <option value="customer">customer</option>
+            </select>
+    </div>
+  </div>
+        <br>
+  <div class="form-row">
+       <div class="col-md-6 mb-3">
+      <label>Password</label>
+      <input type="password"  class="form-control" name="password1" required id="id_password1"  placeholder="Password">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label>Confirm Password</label>
+     <input type="password"  class="form-control" name="password2" required id="id_password2"  placeholder="Confirm Password">
+    </div>
+  </div><br>
+        <div class="form-row">
+<div class="col-md-3 mb-3">
+     <button type="submit" class="btn btn-info">Register !</button>
+    </div>
+                </div>
+</form>
+        </div>
+    </div>
+        <br>
+  </div>
+</div>
+
+
+      {% endblock %}

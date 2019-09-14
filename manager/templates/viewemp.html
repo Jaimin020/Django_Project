@@ -1,0 +1,65 @@
+{% extends request.session.basefile %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="card">
+  <h5 class="card-header">Employees</h5>
+  <div class="card-body">
+<div class="accordion" id="accordionExample">
+  {%for emp in employee_list %}
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <div class="d-flex ml-auto">
+
+        <h6 class="text-capitalize">
+          {{emp.first_name}}  {{emp.last_name}}
+        </h6>
+                 <form method="post" class="rounded-left ml-auto justify-content-end" action="/accounts/empcontroller">
+          <input type="hidden" name="empid" value='{{emp.id}}'>
+              <div class="btn-group ml-auto btn-group-sm " style="width:100%;" role="group" aria-label="Basic example">
+   <button type="submit" name="action" value="profile" class="btn btn-info rounded-left"> Profile </button>
+      <button type="submit"  name="action" value="reports" class="btn btn-info">Reports</button>
+  <button type="button" name="action" value="customers" class="btn btn-info " data-toggle="collapse" data-target="#e{{emp.id}}" aria-expanded="false" aria-controls='e{{emp.id}}'>Customers</button>
+
+
+</div>          </form>
+      </div>
+    </div>
+    <div id='e{{emp.id}}' class="collapse" aria-labelledby="e{{emp.id}}" data-parent="#accordionExample">
+      <div class="card-body">
+
+        <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Customer</th>
+              <th>Product</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+          {%for sal in sales_list%}
+           {% if sal.e_id == emp.id %}
+            <tr>
+              <td>{{sal.r_date}}</td>
+              <td>{{sal.c_name}}</td>
+              <td>{{sal.product.name}}</td>
+              <td>{{sal.product.price}}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+    </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends request.session.basefile %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+  <div class="card">
+  <h5 class="card-header">Send Email</h5>
+  <div class="card-body">
+
+
+  </div>
+      <div class="container">
+            <form method="post">
+ <div class="col-auto">
+          <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                  <div class="input-group-text">From&nbsp;&nbsp;&nbsp;</div>
+              </div>
+              <input type="text" class="form-control" name="from" maxlength="150" value="{{user.email}}" autofocus required id="id_username"disabled>
+          </div>
+      </div>
+ <div class="col-auto">
+          <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                  <div class="input-group-text">To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              </div>
+           <select multiple class="form-control"  name="to" disabled>
+       {% for item in list %} <option>
+              {{item.user.email}}
+              </option>
+               {% endfor %}
+           </select>
+          </div>
+      </div>
+                 <div class="col-auto">
+          <div class="input-group mb-2">
+  <div class="input-group-prepend">
+                  <div class="input-group-text">Subject</div>
+              </div>
+    <textarea class="form-control flex" name="subject" rows="1" required></textarea>
+          </div>
+ </div>
+
+ <div class="col-auto">
+          <div class="input-group mb-2">
+  <div class="input-group-prepend">
+                  <div class="input-group-text">Body&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              </div>
+    <textarea class="form-control flex" name="body"  rows="8" required></textarea>
+          </div>
+ </div>
+       <div class="col-auto">
+        <button type="submit" name='sent' value="sent" class="btn btn-info">Send</button>
+
+    </div>
+
+</form>
+          <br>
+      </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

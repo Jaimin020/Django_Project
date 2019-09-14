@@ -1,0 +1,56 @@
+{% extends request.session.basefile %}
+{% block title %}Change Password{% endblock %}
+
+{% block content %}
+    <style>
+    .card{
+
+    }
+    </style>
+    <script type="text/javascript">
+
+  function checkForm(form)
+  {
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if(form.pwd1.value.length < 6) {
+        alert("Error: Password must contain at least six characters!");
+        form.pwd1.focus();
+        return false;
+      }
+
+    } else {
+      alert("Error: Can You Re-Enter Your New Password Please For Me!");
+      form.pwd1.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+    Change Password
+  </div>
+  <div class="card-body">
+<form action="/accounts/processChange" method="post" onsubmit="return checkForm(this);">{% csrf_token %}
+
+<table class="table-hover" width="250px">
+   <tr>
+       <span >
+       <td> Enter Old Password <div class="card"><input required type="password"  class="form-control" name="old" placeholder="Enter Old Password Here"/></div> </span>
+    </td>
+   </tr><tr></tr>
+    <tr><span ><td> Enter New Password  <div class="card"><input required type="password"  class="form-control" placeholder="Enter New Password Here" name="pwd1"/></div></span>
+    </td>
+    </tr>
+    <tr><span ><td> ReEnter New Password  <div class="card"><input required type="password"  class="form-control" placeholder="ReEnter New Password Here" name="pwd2"/></div></span>
+    </td>
+    </tr>
+    <tr><tr><td></td></tr><td>
+   <center><input type="submit"  class="btn btn-info" value="Update"/></center> </td>
+</tr>
+</table>
+</form>
+  </div>
+</div>
+{% endblock %}

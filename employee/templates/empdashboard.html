@@ -1,0 +1,72 @@
+{% extends request.session.basefile %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<br><br>
+<!--<div class="card" style="width: 18rem;background-color: #fdf5e6">
+	{%load static%}
+  <img src="{% static 'images/reunion.png' %}" class="card-img-top"/>
+  <div class="card-body">
+    <h3><p class="card-text">Your total customer is:-{{count}}</p></h3>
+  </div>
+</div>
+<br><br>-->
+<h2 aligh='center'>Your Report</h2><br>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+<canvas id="lineChart" width="400" height="100"></canvas>
+<script>
+	
+  //line
+  var ctxL = document.getElementById("lineChart").getContext('2d');
+  var myLineChart = new Chart(ctxL, {
+    type: 'line',
+    data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"],
+      datasets: [{
+          label: "# of Customer",
+          data: {{data}},
+          backgroundColor: [
+            'rgba(0, 137, 132, .2)',
+          ],
+          borderColor: [
+            'rgba(0, 10, 130, .7)',
+          ],
+          borderWidth: 2
+        }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+
+</script></div><br><br>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+<h2>Top Employees</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last name</th>
+              <th>email</th>
+              <th>Total Customer</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for e in list%}
+            {% for x in e.0 %}
+              <tr>
+              <td>{{x.first_name}}</td>
+              <td>{{x.last_name}}</td>
+              <td>{{x.email}}</td>
+            {% endfor %}
+              <td>{{e.1}}</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+{% endblock %}

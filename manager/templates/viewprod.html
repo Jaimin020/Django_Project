@@ -1,0 +1,31 @@
+{% extends request.session.basefile %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="card">
+  <h5 class="card-header">Products</h5>
+  <div class="card-body">
+<div class="accordion" id="accordionExample">
+  {%for pro in product_list %}
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn " type="button" data-toggle="collapse" data-target="#p{{pro.id}}" aria-expanded="false" aria-controls='p{{pro.id}}'>
+        <h6> {{pro.id}}  {{pro.name}}</h6>
+        </button>
+      </h2>
+    </div>
+    <div id='p{{pro.id}}' class="collapse" aria-labelledby="p{{pro.id}}" data-parent="#accordionExample">
+      <div class="card-body">
+        {{pro.description}}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+    </div>
+    </div>
+  </div>
+{% endblock %}
